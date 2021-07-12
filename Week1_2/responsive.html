@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Responsive Web</title>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+	<style>
+		body {
+			padding: 0px;
+			margin: 0px;
+			font-family: "Lato";
+		}
+		#header {
+			box-sizing: border-box;
+			height: 66px;
+			background-color: rgb(246, 247, 249);
+			text-align: center;
+		}
+		#header_wrapper {
+			margin: auto 100px;
+		}
+		#logo {
+			position: absolute;
+			top: 22px;
+			width: 200px;
+			font-size: 20px;
+		}
+		#signup_button {
+			position: absolute;
+			top: 8px;
+			right: 50px;
+			box-sizing: border-box;
+			text-align: center;
+			width: 90px;
+			height: 50px;
+			background-color: rgb(14, 82, 252);
+			color: white;
+			font-size: 18px;
+			border: none;
+			border-radius: 5px;
+			margin-top: auto;
+			margin-bottom: auto;
+		}
+		#section1 {
+			position: relative;
+			box-sizing: border-box;
+			width: auto;
+			background-color: #343a40;
+			background-image: url("background.jpg");
+			background-blend-mode: overlay;
+			background-position: center center;
+			background-size: cover;
+			padding: 200px 0px;
+		}
+		#section1_wrapper {
+			width: 700px;
+			margin-left: auto;
+			margin-right: auto;
+		}
+		#section1_title1 {
+			color: white;
+			font-size: 50px;
+			font-weight: 600;
+			text-align: center;
+			margin: 30px 0px;
+		}
+		#section1_form {
+			margin-left: auto;
+			margin-right: auto;
+			text-align: center;
+		}
+		#section1_input1 {
+			box-sizing: border-box;
+			width: 500px;
+			height: 70px;
+			border: none;
+			margin-right: 20px;
+			border-radius: 5px;
+		}
+		#section1_input1::placeholder {
+			font-size: 20px;
+		}
+		#section1_submit1 {
+			box-sizing: border-box;
+			width: 100px;
+			height: 70px;
+			background-color: rgba(14, 82, 252, 0.8);
+			border: none;
+			border-radius: 5px;
+			color: white;
+			font-size: 20px;
+		}
+		#section2 {
+			background-color: rgb(246, 247, 249);
+			text-align: center;
+			padding: 100px 0px;
+		}
+		#section2_content_wrapper {
+			display: grid;
+			grid-template-columns: 1fr 1fr 1fr;
+			width: 1000px;
+			margin-left: auto;
+			margin-right: auto;
+			text-align: center;
+		}
+		.section2_content {
+			width: 320px;
+			height: 258px;
+			margin: 0px 5px;
+			font-size: 25px;
+		}
+		.section2_content > p{
+			font-weight: 200;
+		}
+		#section3 {
+			clear: left;
+		}
+		.section3_content {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			font-size: 25px;
+		}
+		.section3_text_content {
+			margin: 150px 100px;
+		}
+		.section3_text_content > p {
+			font-weight: 200;
+		}
+		#section3_image1 {
+			background-image: url("sec1_bg.png");
+			background-repeat: no-repeat;
+			background-size: cover;
+		}
+		#section3_image2 {
+			background-image: url("sec2_bg.png");
+			background-repeat: no-repeat;
+			background-size: cover;
+		}
+		#section3_image3 {
+			background-image: url("sec3_bg.png");
+			background-repeat: no-repeat;
+			background-size: cover;
+		}
+		#section4 {
+			background-color: rgb(246, 247, 249);
+			text-align: center;
+		}
+		#section4_wrapper {
+			padding: 50px 200px;
+		}
+		#section4_content_wrapper {
+			display: grid;
+			grid-template-columns: 1fr 1fr 1fr;
+			margin-left: auto;
+			margin-right: auto;
+			padding: auto auto;
+			text-align: center;
+		}
+		.section4_content {
+			padding: 0px 60px;
+		}
+		.section4_content > p{
+			line-height: 25px;
+		}
+		.section4_image {
+			width: 192px;
+			height: 192px;
+			border-radius: 70%;
+		}
+		#section5 {
+			position: relative;
+			box-sizing: border-box;
+			width: auto;
+			background-color: #343a40;
+			background-image: url("background.jpg");
+			background-blend-mode: overlay;
+			background-position: center center;
+			background-size: cover;
+			padding: 120px 0px;
+		}
+		#section5_title1 {
+			color: white;
+			font-size: 30px;
+			font-weight: 600;
+			text-align: center;
+			margin: 30px 0px;
+		}
+		#section5_form {
+			margin-left: auto;
+			margin-right: auto;
+			text-align: center;
+		}
+		#section5_input1 {
+			box-sizing: border-box;
+			width: 500px;
+			height: 70px;
+			border: none;
+			margin-right: 20px;
+			border-radius: 5px;
+		}
+		#section5_input1::placeholder {
+			font-size: 20px;
+		}
+		#section5_submit1 {
+			box-sizing: border-box;
+			width: 100px;
+			height: 70px;
+			background-color: rgba(14, 82, 252, 0.8);
+			border: none;
+			border-radius: 5px;
+			color: white;
+			font-size: 20px;
+		}
+		#footer {
+			background-color: rgb(246, 247, 249);
+		}
+		#footer_wrapper {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+		}
+		#footer_menu {
+			padding: 0px;
+			margin: 0px;
+			list-style: none;
+		}
+		#footer_menu > li {
+			display: inline;
+			color:rgb(14, 82, 252);
+		}
+		#footer_wrapper {
+			padding: 50px 300px;
+		}
+		#footer_right {
+			text-align: right;
+		}
+		#footer_right_wrapper {
+			margin-top: 20px;
+			margin-bottom: 20px;
+		}
+		#footer_right_wrapper > i {
+			margin-right: 30px;
+			cursor: pointer;
+			font-size: 25px; 
+			color: rgb(14, 82, 252);
+		}
+		#footer_right_wrapper > i:hover {
+			color:rgb(13, 63, 190);
+		}
+		.footer_menu_item > a:hover {
+			color:rgb(13, 63, 190);
+		}
+		.footer_delimiter > span {
+			font-size: 25px;
+			color: black;
+			font-weight: bold;
+		}
+
+		/* For Tablet */
+		@media (min-width: 400px) and (max-width: 1000px) {
+			#section2_content_wrapper {
+				width: 320px;
+				grid-template-columns: 1fr;
+				text-align: center;
+				margin-left: auto;
+				margin-right: auto;
+			}
+			#section3_text1 {
+				grid-area: text1;
+			}
+			#section3_text2 {
+				grid-area: text2;
+			}
+			#section3_text3 {
+				grid-area: text3;
+			}
+			#section3_image1 {
+				grid-area: image1;
+			}
+			#section3_image2 {
+				grid-area: image2;
+			}
+			#section3_image3 {
+				grid-area: image3;
+			}
+			.section3_content {
+				grid-template-columns: 1fr;
+				grid-template-areas: 
+					"image1"
+					"text1"
+					"image2"
+					"text2"
+					"image3"
+					"text3";
+			}
+			.section3_text_content {
+				margin: 50px auto;
+			}
+			.section3_image {
+				height: 480px;
+			}
+			#section4_wrapper {
+				padding: 50px 50px;
+			}
+			#section4_content_wrapper {
+				width: 320px;
+				grid-template-columns: 1fr;
+			}
+			.section4_content {
+				margin-bottom: 10px;
+			}
+			#section1_wrapper {
+				width: 100%;
+			}
+			#section1_input1 {
+				width: 70%;
+			}
+			#section1_submit1 {
+				width: 100px;
+				margin: 0px;
+			}
+			#section5_input1 {
+				width: 70%;
+			}
+			#section5_submit1 {
+				width: 100px;
+				margin: 0px;
+			}
+			#footer_wrapper {
+				padding: 50px 50px;
+				margin-left: auto;
+				margin-right:auto;
+			}
+		}
+		/* for mobile phone */
+		@media (max-width: 400px) {
+			#header_wrapper {
+				margin: auto 10px;
+			}
+			#section2_content_wrapper {
+				width: 320px;
+				grid-template-columns: 1fr;
+				text-align: center;
+				margin-left: auto;
+				margin-right: auto;
+			}
+			#section3_text1 {
+				grid-area: text1;
+			}
+			#section3_text2 {
+				grid-area: text2;
+			}
+			#section3_text3 {
+				grid-area: text3;
+			}
+			#section3_image1 {
+				grid-area: image1;
+			}
+			#section3_image2 {
+				grid-area: image2;
+			}
+			#section3_image3 {
+				grid-area: image3;
+			}
+			.section3_content {
+				grid-template-columns: 1fr;
+				grid-template-areas: 
+					"image1"
+					"text1"
+					"image2"
+					"text2"
+					"image3"
+					"text3";
+			}
+			.section3_text_content {
+				margin: 50px auto;
+			}
+			.section3_image {
+				height: 480px;
+			}
+			#section4_content_wrapper {
+				grid-template-columns: 1fr;
+			}
+			.section4_content {
+				margin-bottom: 10px;
+			}
+			#section1_wrapper {
+				width: 100%;
+			}
+			#section1_input1 {
+				width: 70%;
+			}
+			#section1_submit1 {
+				width: 100px;
+				margin: 0px;
+			}
+			#section5_input1 {
+				width: 70%;
+			}
+			#section5_submit1 {
+				width: 100px;
+				margin: 0px;
+			}
+			#footer_wrapper {
+				padding: 50px 10px;
+				grid-template-columns: 1fr;
+			}
+		}
+	</style>
+</head>
+<body>
+	<div id="wrapper">
+		
+		<div id="header">
+			<div id="header_wrapper">
+				<div id="logo">Start Bootstrap</div>
+				<button id="signup_button">Sign up</button>
+			</div>
+		</div>
+
+		<div id="section1">
+			<div id="section1_wrapper">
+				<div id="section1_title1">Generate more leads with a professional landing page!</div>
+				<form action="url here..." id="section1_form">
+					<input type="text" id="section1_input1" placeholder="Email Address">
+					<input type="submit" id="section1_submit1" value="Submit">
+				</form>
+			</div>
+		</div>
+
+		<div id="section2">
+			<div id="section2_content_wrapper">
+				<div id="section2_content1" class="section2_content">
+					<i class="bi bi-window" style="font-size: 76px; color: rgb(14, 82, 252);"></i>
+					<h3 id="section2_title1">Fully Responsive</h3>
+					<p id="section2_para1">This theme will look great on any device, no matter the size!</p>
+				</div>
+				<div id="section2_content2" class="section2_content">
+					<i class="bi bi-layers" style="font-size: 76px; color: rgb(14, 82, 252);"></i>
+					<h3 id="section2_title2">Bootstrap 5 Ready</h3>
+					<p id="section2_para2">Featuring the latest build of the new Bootstrap 5 framework!</p>
+				</div>
+				<div id="section2_content3" class="section2_content">
+					<i class="bi bi-terminal" style="font-size: 76px; color: rgb(14, 82, 252);"></i>
+					<h3 id="section2_title3">Easy to Use</h3>
+					<p id="section2_para3">Ready to use with your own content, or customize the source files!</p>
+				</div>
+			</div>
+		</div>
+
+		<div id="section3">
+			<div id="section3_content1" class="section3_content">
+				<div id="section3_text1" class="section3_text_content">
+					<h3 id="section3_title1">Fully Responsive Design</h3>
+					<p id="section3_para1">When you use a theme created by Start Bootstrap, you know that the theme will look great on any device, whether it's a phone, tablet, or desktop the page will behave responsively!</p>
+				</div>
+				<div id="section3_image1" class="section3_image"></div>
+			</div>
+			<div id="section3_content2" class="section3_content">
+				<div id="section3_image2" class="section3_image"></div>
+				<div id="section3_text2" class="section3_text_content">
+					<h3 id="section4_title2">Updated For Bootstrap 5</h3>
+					<p id="section4_para2">Newly improved, and full of great utility classes, Bootstrap 5 is leading the way in mobile responsive web development! All of the themes on Start Bootstrap are now using Bootstrap 5!</p>
+				</div>
+			</div>
+			<div id="section3_content3" class="section3_content">
+				<div id="section3_text3" class="section3_text_content">
+					<h3 id="section3_title3">Easy to Use & Customize</h3>
+					<p id="section3_para3">Landing Page is just HTML and CSS with a splash of SCSS for users who demand some deeper customization options. Out of the box, just add your content and images, and your new landing page will be ready to go!</p>
+				</div>
+				<div id="section3_image3" class="section3_image"></div>
+			</div>
+		</div>
+
+		<div id="section4">
+			<div id="section4_wrapper">
+				<h1 id="section4_title">What people are saying...</h1>
+				<div id="section4_content_wrapper">
+					<div id="section4_content1" class="section4_content">
+						<img id="section4_image1" class="section4_image" src="testimonials-1.jpg"></img>
+						<h3 id="section4_title1">Margaret E.</h3>
+						<p id="section4_para1">"This is fantastic! Thanks so much guys!"</p>
+					</div>
+					<div id="section4_content2" class="section4_content">
+						<img id="section4_image2" class="section4_image" src="testimonials-2.jpg"></img>
+						<h3 id="section4_title2">Fred S.</h3>
+						<p id="section4_para2">"Bootstrap is amazing. I've been using it to create lots of super nice landing pages."</p>
+					</div>
+					<div id="section4_content3" class="section4_content">
+						<img id="section4_image3" class="section4_image" src="testimonials-3.jpg"></img>
+						<h3 id="section4_title3">Sarah W.</h3>
+						<p id="section4_para3">"Thanks so much for making these free resources available to us!"</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="section5">
+			<div id="section5_title1">Ready to get started? Sign up now!</div>
+			<form action="url here..." id="section5_form">
+				<input type="text" id="section5_input1" placeholder="Email Address">
+				<input type="submit" id="section5_submit1" value="Submit">
+			</form>
+		</div>
+
+		<div id="footer">
+			<div id="footer_wrapper">
+				<div id="footer_left">
+					<ul id="footer_menu">
+						<li class="footer_menu_item"><a href="url here...">About</a></li>
+						<li class="footer_delimiter"><span>⋅</span></li>
+						<li class="footer_menu_item"><a href="url here...">Contact</a></li>
+						<li class="footer_delimiter"><span>⋅</span></li>
+						<li class="footer_menu_item"><a href="url here...">Terms of Use</a></li>
+						<li class="footer_delimiter"><span>⋅</span></li>
+						<li class="footer_menu_item"><a href="url here...">Privacy Policy</a></li>
+					</ul>
+					<p id="fotter_text" style="color: rgb(90, 98, 105)">© Your Website 2021. All Rights Reserved.</p>
+				</div>
+				<div id="footer_right">
+					<div id="footer_right_wrapper">
+						<i class="bi bi-instagram" href="url here..."></i>
+						<i class="bi bi-twitter" href="url here..."></i>
+						<i class="bi bi-facebook" href="url here..."></i>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
