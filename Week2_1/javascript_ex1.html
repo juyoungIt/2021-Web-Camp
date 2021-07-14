@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>javascript exercise1</title>
+	<style>
+		#container {
+			width: 400px;
+			height: 400px;
+			position: relative;
+			background: yellow;
+		}
+		#animate {
+			width: 50px;
+			height: 50px;
+			position: absolute;
+			background-color: tomato;
+		}
+		#status_bar {
+			color: red;
+		}
+		#element_container {
+			background-color: tomato;
+			width: 350px;
+			height: 350px;
+		}
+		#element {
+			background-color:gold;
+			width: 100px;
+			height: 100px;
+		}
+		#demo {
+			background-color: gold;
+			border: 1px solid black;
+		}
+		th, td {
+			border: 1px solid black;
+		}
+	</style>
+</head>
+<body>
+	<!-- Form validation -->
+	<h1>Exercise about "Form validation!"</h1>
+	<p>If user input wrong student id(ex. 22100000, null or short/overflow), the message will appear.</p>
+	<form action="url here...">
+		<input type="text" id="text_input">
+		<button type="button" onclick="validator()">Submit</button>
+	</form>
+	<p id="status_bar"></p>
+
+	<script>
+		function validator() {
+			let input = document.getElementById("text_input").value;
+			let returnText;
+
+			if(isNaN(input) || input.length != 8) {
+				returnText = "The input format is not valid...";
+			} else {
+				returnText = "Valid input was detected!";
+			}
+			document.getElementById("status_bar").innerHTML = returnText;
+		}
+	</script>
+
+	<!-- Event -->
+	<h1>Exercise about "Event!" & "CSS"</h1>
+	<p>1. 큰 사각형에 cursor가 올라가는 경우 "gold"로 색상 변화</p>
+	<p>2. 작은 사각형에 cursor가 올라가는 경우 "tomato"로 색상 변화</p>
+	<p>3. 큰 사각형에서 cursor가 나가는 경우 "tomato로 색상 변화"</p>
+	<p>4. 작은 사각형에서 cursor가 나가는 경우 "gold"로 색상 변화</p>
+	<p>5. 큰 사각형을 클릭하는 경우 alert 창에 "element_container"가 클릭되었다는 알림</p>
+	<p>6. 작은 사각형을 클릭하는 경우 alert 창에 "element"가 클릭되었다는 알림</p>
+	<p>여기서 5, 6의 경우 "Event Capturing"의 개념을 사용함</p>
+
+	<div id="element_container">
+		<div id="element"></div>
+	</div>
+	<div id="event_log"></div>
+
+	<script>
+		document.getElementById("element_container").addEventListener("click", navigator1, true);
+		document.getElementById("element").addEventListener("click", navigator2, true);
+		document.getElementById("element_container").addEventListener("mouseover", changeColor1);
+		document.getElementById("element").addEventListener("mouseover", changeColor2);
+		document.getElementById("element_container").addEventListener("mouseout", changeColor3);
+		document.getElementById("element").addEventListener("mouseout", changeColor4);
+
+		function navigator1() {
+			alert("The event was generated in element_container!");
+			document.getElementById("event_log").innerHTML += "element_container \"clicked!\"<br>";
+		}
+		function navigator2() {
+			alert("The event was generated in element!");
+			document.getElementById("event_log").innerHTML += "element \"clicked!\"<br>";
+		}
+		function changeColor1() {
+			document.getElementById("element_container").style.backgroundColor = "gold";
+		}
+		function changeColor2() {
+			document.getElementById("element").style.backgroundColor = "tomato";
+		}
+		function changeColor3() {
+			document.getElementById("element_container").style.backgroundColor = "tomato";
+		}
+		function changeColor4() {
+			document.getElementById("element").style.backgroundColor = "gold";
+		}
+	</script>
+
+	<!-- AJAX -->
+	<h1>Exercise about "AJAX"</h1>
+	<p>"Get my Kakao Friends collection" 버튼을 클릭하면 현재 카카오프렌즈에 등록된 캐릭터들의 목록 정보를 비동기적으로 불러옵니다.</p>
+
+	<button type="button" onclick="loadDoc()">Get my Kakao Friends collection</button>
+	<br><br>
+	<table id="demo"></table>
+
+	<script>
+		function loadDoc() {
+			const xhttp = new XMLHttpRequest();
+			xhttp.onload = function() {
+				myFunction(this);
+			}
+			xhttp.open("GET", "kakaoFriends.xml");
+			xhttp.send();
+		}
+		function myFunction(xml) {
+			const xmlDoc = xml.responseXML;
+			const x = xmlDoc.getElementsByTagName("friend");
+			let table="<tr><th>name</th><th>type</th><th>company</th><th>year</th></tr>";
+			for (let i = 0; i <x.length; i++) { 
+				table += "<tr><td>" + x[i].getElementsByTagName("name")[0].childNodes[0].nodeValue 
+					+ "</td><td>" + x[i].getElementsByTagName("type")[0].childNodes[0].nodeValue
+					+ "</td><td>" + x[i].getElementsByTagName("company")[0].childNodes[0].nodeValue
+					+ "</td><td>" + x[i].getElementsByTagName("year")[0].childNodes[0].nodeValue + "</td></tr>";
+			}
+			document.getElementById("demo").innerHTML = table;
+		}
+	</script>
+
+	<!-- Animation -->
+	<h1>Exercise about "Animation"</h1>
+	<h3>move 'ㄱ' direction</h3>
+	<p><button onclick="myMove()">Click Me</button></p>
+
+	<div id ="container">
+		<div id ="animate"></div>
+	</div>
+	<script>
+		function myMove() {
+			let id = null;
+			const elem = document.getElementById("animate");   
+			let posX = 0;
+			let posY = 0;
+			elem.style.left = posX + "px";
+			elem.style.top = posY + "px";
+			clearInterval(id);
+			id = setInterval(frame, 5);
+			function frame() {
+				if (posX == 350 && posY == 350) {
+					clearInterval(id);
+				} 
+				else if (posX != 350){
+					posX++; 
+					elem.style.left = posX + "px"; 
+				}
+				else if (posY != 350) {
+					posY++;
+					elem.style.top = posY + "px";
+				}
+			}
+		}
+</script>
+
+</body>
+</html>
